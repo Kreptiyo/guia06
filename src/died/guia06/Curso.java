@@ -1,5 +1,6 @@
 package died.guia06;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,13 +26,25 @@ public class Curso {
 	
 	private Registro log;
 	
-	public Curso() {
+	public Curso() 
+	{
 		super();
 		this.inscriptos = new ArrayList<Alumno>();
 		this.log = new Registro();
 	}
 	
-
+	public Curso(Integer id, String nombre, Integer cicloLectivo, Integer cupo, Integer creditos, Integer creditosRequeridos)
+	{
+		super();
+		this.id = id;
+		this.nombre = nombre;
+		this.cicloLectivo = cicloLectivo;
+		this.cupo = cupo;
+		this.log = new Registro();
+		this.inscriptos = new ArrayList<Alumno>();
+		this.creditos = creditos;
+		this.creditosRequeridos = creditosRequeridos;
+	}
 	/**
 	 * Este método, verifica si el alumno se puede inscribir y si es así lo agrega al curso,
 	 * agrega el curso a la lista de cursos en los que está inscripto el alumno y retorna verdadero.
@@ -46,7 +59,17 @@ public class Curso {
 	 * @return
 	 */
 	public Boolean inscribir(Alumno a) {
-		log.registrar(this, "inscribir ",a.toString());
+		try {
+			if(this.cupo > 0 && a.creditosObtenidos() >= this.creditosRequeridos && a.cantidadMaterias(this.cicloLectivo) < 3)
+			{
+				log.registrar(this, "inscribir ",a.toString());
+				this.cupo -= 1;
+				a.inscripcionAceptada(this);
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return false;
 	}
 	
@@ -54,9 +77,39 @@ public class Curso {
 	/**
 	 * imprime los inscriptos en orden alfabetico
 	 */
-	public void imprimirInscriptos() {
-		log.registrar(this, "imprimir listado",this.inscriptos.size()+ " registros ");
+	public void imprimirInscriptos() 
+	{
+		try {
+			log.registrar(this, "imprimir listado",this.inscriptos.size()+ " registros ");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public Integer getCreditos()
+	{
+		return this.creditos;
 	}
 
-
+	public Integer getCicloLectivo()
+	{
+		return this.cicloLectivo;
+	}
+	
+	public Integer getCupos()
+	{
+		return this.cupo;
+	}
+	
+	public void imprimirCurso()
+	{
+		System.out.println("ID: " +this.id);
+		System.out.println("Nombre: " +this.nombre);
+		System.out.println("Ciclo lectivo: " +this.cicloLectivo);
+		System.out.println("Cupo: " +this.cupo);
+		System.out.println("Creditos: " +this.creditos);
+		System.out.println("Creditos requeridos: " +this.creditosRequeridos);
+		System.out.println("--------------------------------------------");
+	}
 }
