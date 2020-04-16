@@ -80,28 +80,29 @@ public class Curso {
 	
 	
 	/**
-	 * imprime los inscriptos en orden alfabetico
+	 * imprime los inscriptos en orden alfabetico o por nro de libreta
 	 */
 	public void imprimirInscriptos(String o) 
 	{
 		try 
 		{
 			Comparator<Alumno> comp = null;
+			List<Alumno> listaOrdenada = inscriptos;
 			log.registrar(this, "imprimir listado",this.inscriptos.size()+ " registros ");
 			switch(o)
 			{
 			case "ALFABETICO":
 				comp = (a1, a2) -> a1.getNombre().compareTo(a2.getNombre());
-				Collections.sort(inscriptos, comp);
-				for(Alumno unAlumno: this.inscriptos)
+				Collections.sort(listaOrdenada, comp);
+				for(Alumno unAlumno: listaOrdenada)
 				{
 					System.out.println("Nombre: "+unAlumno.getNombre() + " | Nro. de libreta: " +unAlumno.getnroLibreta());
 				}
 				break;
 			case "LIBRETA":
 				comp = (a1, a2) -> a1.getnroLibreta().compareTo(a2.getnroLibreta());
-				Collections.sort(inscriptos, comp);
-				for(Alumno unAlumno: this.inscriptos)
+				Collections.sort(listaOrdenada, comp);
+				for(Alumno unAlumno: listaOrdenada)
 				{
 					System.out.println("Nombre: "+unAlumno.getNombre() + " | Nro. de libreta: " +unAlumno.getnroLibreta());
 				}

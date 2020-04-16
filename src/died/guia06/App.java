@@ -12,8 +12,9 @@ public class App {
 		Alumno alumno2 = new Alumno("Ariel", 25703);
 		Alumno alumno3 = new Alumno("Matias", 27703);
 		curso.inscribirAlumno(alumno);
-		curso2.inscribirAlumno(alumno);
-		curso3.inscribirAlumno(alumno);
-		curso4.inscribirAlumno(alumno);
+		curso.inscribirAlumno(alumno2);
+		curso.inscribirAlumno(alumno3);
+		curso.imprimirInscriptos("ALFABETICO");
+		
 	}
 }
