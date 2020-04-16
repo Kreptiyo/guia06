@@ -73,7 +73,7 @@ public class Curso {
 	/**
 	 * imprime los inscriptos en orden alfabetico o por nro de libreta
 	 */
-	public void imprimirInscriptos(String o) 
+	public void imprimirInscriptos(String o)
 	{
 		try 
 		{
@@ -99,9 +99,10 @@ public class Curso {
 				}
 				break;
 			}
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} 
+		catch (IOException e) 
+		{
+			//throw new RegistroAuditoriaException("Error de registro");
 		}
 	}
 	
