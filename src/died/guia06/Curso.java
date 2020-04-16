@@ -102,7 +102,7 @@ public class Curso {
 		} 
 		catch (IOException e) 
 		{
-			//throw new RegistroAuditoriaException("Error de registro");
+			throw new RegistroAuditoriaException("Error de registro");
 		}
 	}
 	

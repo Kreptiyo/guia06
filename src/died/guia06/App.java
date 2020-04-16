@@ -15,6 +15,7 @@ public class App {
 		curso.inscribirAlumno(alumno2);
 		curso.inscribirAlumno(alumno3);
 		curso.imprimirInscriptos("ALFABETICO");
+
 		
 	}
 }
