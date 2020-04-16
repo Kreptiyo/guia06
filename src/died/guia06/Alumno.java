@@ -75,6 +75,16 @@ public class Alumno
 		return cantidad;
 	}
 	
+	public String getNombre()
+	{
+		return this.nombre;
+	}
+	
+	public Integer getnroLibreta()
+	{
+		return this.nroLibreta;
+	}
+	
 	public void imprimirCursando()
 	{
 		for(Curso unCurso: cursando)
