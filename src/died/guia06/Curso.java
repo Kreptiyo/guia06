@@ -61,21 +61,12 @@ public class Curso {
 	 * @param a
 	 * @return
 	 */
-	public Boolean inscribir(Alumno a) 
+	public boolean inscribir(Alumno a) 
 	{
-		try {
-				log.registrar(this, "inscribir ",a.toString());
-				this.cupo -= 1;
-				this.inscriptos.add(a);
-				a.inscripcionAceptada(this);
-				return true;
-		} 
-		catch (IOException e) 
-		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return false;
+			this.cupo -= 1;
+			this.inscriptos.add(a);
+			a.inscripcionAceptada(this);
+			return true;
 	}
 	
 	
@@ -114,7 +105,7 @@ public class Curso {
 		}
 	}
 	
-	public void inscribirAlumno(Alumno a)
+	public boolean inscribirAlumno(Alumno a)
 	{
 		try
 		{
@@ -125,6 +116,15 @@ public class Curso {
 					if(a.cantidadMaterias(this.cicloLectivo) < 3)
 					{
 						inscribir(a);
+						try
+						{
+							log.registrar(this, "inscribir ",a.toString());
+						}
+						catch(IOException e)
+						{
+							throw new RegistroAuditoriaException("Error de registro");
+						}
+						return true;
 					}
 					else
 					{
@@ -145,6 +145,7 @@ public class Curso {
 		{
 			System.out.println(e.getMessage());
 		}
+		return false;
 	}
 	
 	public Integer getCreditos()

@@ -30,24 +30,27 @@ public class Alumno
 		return creditos;
 	}
 
-	public void aprobar(Curso c) 
+	public boolean aprobar(Curso c) 
 	{
 		if(this.cursando.contains(c))
 		{
 			this.aprobados.add(c);
 			this.cursando.remove(c);
+			return true;
 		}
 		else
 		{
 			System.out.println("El alumno no se encuentra en este curso");
+			return false;
 		}
 		
 	}
 
-	public void inscripcionAceptada(Curso c) 
+	public boolean inscripcionAceptada(Curso c) 
 	{
 		this.cursando.add(c);
 		System.out.println("El alumno se inscribio correctamente");
+		return true;
 	}
 	
 	public Boolean equals(Alumno a) 
