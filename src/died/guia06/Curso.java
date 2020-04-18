@@ -63,7 +63,7 @@ public class Curso {
 	 */
 	public boolean inscribir(Alumno a) 
 	{
-			this.cupo -= 1;
+			this.cupo--;
 			this.inscriptos.add(a);
 			a.inscripcionAceptada(this);
 			return true;
@@ -102,7 +102,14 @@ public class Curso {
 		} 
 		catch (IOException e) 
 		{
-			throw new RegistroAuditoriaException("Error de registro");
+			try
+			{
+				throw new RegistroAuditoriaException("Error de registro");
+			}
+			catch(RegistroAuditoriaException r)
+			{
+				System.out.println(r.getMessage());
+			}
 		}
 	}
 	

@@ -72,7 +72,7 @@ public class Alumno
 		{
 			if(unCurso.getCicloLectivo().equals(cicloLectivo))
 			{
-				cantidad += 1;
+				cantidad++;
 			}
 		}
 		return cantidad;
