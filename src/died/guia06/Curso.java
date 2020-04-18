@@ -85,20 +85,13 @@ public class Curso {
 			case "ALFABETICO":
 				comp = (a1, a2) -> a1.getNombre().compareTo(a2.getNombre());
 				Collections.sort(listaOrdenada, comp);
-				for(Alumno unAlumno: listaOrdenada)
-				{
-					System.out.println("Nombre: "+unAlumno.getNombre() + " | Nro. de libreta: " +unAlumno.getnroLibreta());
-				}
 				break;
 			case "LIBRETA":
 				comp = (a1, a2) -> a1.getnroLibreta().compareTo(a2.getnroLibreta());
 				Collections.sort(listaOrdenada, comp);
-				for(Alumno unAlumno: listaOrdenada)
-				{
-					System.out.println("Nombre: "+unAlumno.getNombre() + " | Nro. de libreta: " +unAlumno.getnroLibreta());
-				}
 				break;
 			}
+			System.out.println(listaOrdenada.toString());
 		} 
 		catch (IOException e) 
 		{

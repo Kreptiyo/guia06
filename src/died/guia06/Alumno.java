@@ -78,6 +78,11 @@ public class Alumno
 		return cantidad;
 	}
 	
+	public String toString()
+	{
+		return "Alumno: " + this.nombre+ " | Nro. de libreta: " + this.nroLibreta;
+	}
+	
 	public String getNombre()
 	{
 		return this.nombre;
