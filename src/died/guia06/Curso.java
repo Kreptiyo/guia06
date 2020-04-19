@@ -149,6 +149,11 @@ public class Curso {
 		return false;
 	}
 	
+	public String toString()
+	{
+		return this.nombre;
+	}
+	
 	public Integer getCreditos()
 	{
 		return this.creditos;

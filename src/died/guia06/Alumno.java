@@ -80,7 +80,7 @@ public class Alumno
 	
 	public String toString()
 	{
-		return "Alumno: " + this.nombre+ " | Nro. de libreta: " + this.nroLibreta;
+		return "Nombre: " + this.nombre+ " | Nro. de libreta: " + this.nroLibreta;
 	}
 	
 	public String getNombre()
